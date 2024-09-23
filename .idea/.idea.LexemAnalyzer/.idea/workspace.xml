@@ -8,17 +8,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7485bc41-22bc-4380-aa76-1ec5f40c24b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/indexLayout.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/projectSettingsUpdater.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Category.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Entry.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LexemAnalyzer.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LexemAnalyzer.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Options.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexemAnalyzer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LexemAnalyzer.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LexemAnalyzer.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/LexemAnalyzer.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,12 +26,21 @@
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/159643ed89134ab5acc5815189e8f8b56fc70/27/87748900/Workbook.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/41a0de08fd904c198f077aa38a64b67f3b2268/d2/4c84a0c3/DocumentModelBase`1.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/bc1d76b9965449cf84649bc8d6b5b9c5c63600/5d/6fac9170/Encoding.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/80/ae2ba9af/DocumentLoadResult.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba326844e34bdd2ab92701de8f870331eabdb1e11361acfaa339364faa886/ExcelDataReader.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Category.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Entry.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Options.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 3
-}]]></component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 3
+}</component>
   <component name="ProjectId" id="2mNGXLLv5MPx9I9QoxgXLvnZjvd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -49,8 +51,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.LexemAnalyzer.executor": "Run",
+    ".NET Project.LexemAnalyzer with param.executor": "Run",
+    ".NET Project.LexemAnalyzer.executor": "Debug",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Publish to folder.Release (osx-arm).executor": "Run",
     "Publish to folder.Release.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -62,14 +66,18 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Publish to folder.Release">
+  <component name="RunManager" selected=".NET Project.LexemAnalyzer">
+    <configuration name="Release (osx-arm)" type="DotNetFolderPublish" factoryName="Publish to folder">
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" ready_to_run="true" runtime="osx-arm64" self_contained="true" target_folder="$PROJECT_DIR$/bin/Release/net8.0/osx-arm64/publish" target_framework="net8.0" trim_unused_assemblies="true" uuid_high="-6203372173518092429" uuid_low="-6813768550137113095" />
+      <method v="2" />
+    </configuration>
     <configuration name="Release" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" include_native_libs_for_self_extract="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" runtime="win-x64" target_folder="$PROJECT_DIR$/bin/Release/net8.0/win-x64/publish" target_framework="net8.0" uuid_high="-6203372173518092429" uuid_low="-6813768550137113095" />
+      <riderPublish configuration="Release" delete_existing_files="true" include_native_libs_for_self_extract="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$/bin/Release/net8.0/win-x64/publish" target_framework="net8.0" uuid_high="-6203372173518092429" uuid_low="-6813768550137113095" />
       <method v="2" />
     </configuration>
     <configuration name="LexemAnalyzer with param" type="DotNetProject" factoryName=".NET Project">
       <option name="EXE_PATH" value="$PROJECT_DIR$/bin/Debug/net8.0/LexemAnalyzer" />
-      <option name="PROGRAM_PARAMETERS" value="-f &quot;$USER_HOME$/Downloads/Частотныйсловарь2.xlsx&quot;" />
+      <option name="PROGRAM_PARAMETERS" value="-f &quot;$USER_HOME$/Downloads/Частотный_словарь_итог3.xlsx&quot;" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/bin/Debug/net8.0" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
@@ -107,6 +115,7 @@
       <item itemvalue=".NET Project.LexemAnalyzer" />
       <item itemvalue=".NET Project.LexemAnalyzer with param" />
       <item itemvalue="Publish to folder.Release" />
+      <item itemvalue="Publish to folder.Release (osx-arm)" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -117,16 +126,113 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1726909658715</updated>
-      <workItem from="1726909659796" duration="6556000" />
+      <workItem from="1726909659796" duration="9829000" />
+      <workItem from="1727064108678" duration="1424000" />
     </task>
+    <task id="LOCAL-00001" summary="Parse some lexems and show statistic">
+      <option name="closed" value="true" />
+      <created>1726919073687</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726919073687</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="Parse some lexems and show statistic" />
+    <option name="LAST_COMMIT_MESSAGE" value="Parse some lexems and show statistic" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs</url>
+          <line>462</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs" containingFunctionPresentation="Method 'LoadDocument'">
+            <startOffsets>
+              <option value="12636" />
+            </startOffsets>
+            <endOffsets>
+              <option value="12654" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs</url>
+          <line>463</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs" containingFunctionPresentation="Method 'LoadDocument'">
+            <startOffsets>
+              <option value="12661" />
+            </startOffsets>
+            <endOffsets>
+              <option value="12700" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs</url>
+          <line>1557</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" containingFunctionPresentation="Method 'LoadDocumentCore'">
+            <startOffsets>
+              <option value="60603" />
+            </startOffsets>
+            <endOffsets>
+              <option value="60702" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs</url>
+          <line>1539</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" containingFunctionPresentation="Method 'LoadDocument'">
+            <startOffsets>
+              <option value="59957" />
+            </startOffsets>
+            <endOffsets>
+              <option value="60026" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs</url>
+          <line>1540</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" containingFunctionPresentation="Method 'LoadDocument'">
+            <startOffsets>
+              <option value="60037" />
+            </startOffsets>
+            <endOffsets>
+              <option value="60098" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs</url>
+          <line>1569</line>
+          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" containingFunctionPresentation="Method 'LoadDocumentCore'">
+            <startOffsets>
+              <option value="61282" />
+            </startOffsets>
+            <endOffsets>
+              <option value="61339" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

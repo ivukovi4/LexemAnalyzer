@@ -1,27 +1,29 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using System.Text;
 using CommandLine;
-using DevExpress.Spreadsheet;
+using ExcelDataReader;
 using LexemAnalyzer;
 using Spectre.Console;
 using Table = Spectre.Console.Table;
 
+Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
 await Parser.Default.ParseArguments<Options>(args).WithParsedAsync(async o =>
 {
-    using var workbook = new Workbook();
-
     if (string.IsNullOrEmpty(o.FilePath))
         o.FilePath = Directory.GetFiles("./", "*.xlsx", SearchOption.AllDirectories).FirstOrDefault();
 
     if (!File.Exists(o.FilePath))
         throw new FileNotFoundException(o.FilePath);
 
-    if (!await workbook.LoadDocumentAsync(o.FilePath))
-        throw new InvalidOperationException("Can't open file");
+    await using var fileStream = File.Open(o.FilePath, FileMode.Open, FileAccess.Read);
+
+    using var excelDataReader = ExcelReaderFactory.CreateReader(fileStream);
 
     Entry[] entries =
     [
-        ..GetEntries(workbook.Worksheets[0])
+        ..GetEntries(excelDataReader)
     ];
 
     Category[] categories =
@@ -56,31 +58,36 @@ await Parser.Default.ParseArguments<Options>(args).WithParsedAsync(async o =>
 
     AnsiConsole.Write(categoriesTable);
 
-    await TextCopy.ClipboardService.SetTextAsync(string.Join(Environment.NewLine,
-        categories.Select(x => x.ToString())));
-
     AnsiConsole.WriteLine();
 
-    AnsiConsole.WriteLine("Таблица скопирована в буфер обмена ...");
+    AnsiConsole.WriteLine("Нажмите любую кнопку чтобы выйти (Нажмите 'C' для копирования таблицы) ...");
+
+    var key = Console.ReadKey(true);
+    if (key.KeyChar is 'c' or 'C' or 'с' or 'С')
+    {
+        await TextCopy.ClipboardService.SetTextAsync(string.Join(Environment.NewLine,
+            categories.Select(x => x.ToString())));
+
+        AnsiConsole.WriteLine("Таблица скопирована в буфер обмена ...");
+    }
+
+    AnsiConsole.WriteLine("Выходим ...");
 });
 
 return;
 
-IEnumerable<Entry> GetEntries(Worksheet? worksheet)
+IEnumerable<Entry> GetEntries(IExcelDataReader reader)
 {
-    if (worksheet == null) yield break;
-
-    for (var i = worksheet.Rows.LastUsedIndex; i >= 0; i--)
+    while (reader.Read())
     {
-        var name = worksheet.Rows[i][0].Value.ToString();
-
-        var count = ParseCount(worksheet.Rows[i][1].Value);
+        var name = reader.GetString(0);
+        var count = (int)reader.GetDouble(1);
 
         string?[] categories =
         [
-            worksheet.Rows[i][2].Value.ToString(),
-            worksheet.Rows[i][3].Value.ToString(),
-            worksheet.Rows[i][3].Value.ToString()
+            reader.GetString(2),
+            reader.GetString(3),
+            reader.GetString(4)
         ];
 
         yield return new Entry(name, count, [
@@ -89,14 +96,4 @@ IEnumerable<Entry> GetEntries(Worksheet? worksheet)
                 .Select(x => x!.ToLower().Trim())
         ]);
     }
-}
-
-int ParseCount(CellValue cell)
-{
-    if (cell.IsNumeric)
-    {
-        return (int)cell.NumericValue;
-    }
-
-    return -1;
 }
