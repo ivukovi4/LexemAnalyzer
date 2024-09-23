@@ -4,20 +4,13 @@ using System.Text.RegularExpressions;
 using ExcelDataReader;
 using Spectre.Console;
 using Spectre.Console.Cli;
+using TextCopy;
 
 namespace LexemAnalyzer;
 
 // ReSharper disable once ClassNeverInstantiated.Global
 internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Options>
 {
-    // ReSharper disable once ClassNeverInstantiated.Global
-    public sealed class Options : CommandSettings
-    {
-        [Description("The file to analyze.")]
-        [CommandArgument(0, "[filePath]")]
-        public string? FilePath { get; set; }
-    }
-
     public override async Task<int> ExecuteAsync(CommandContext commandContext, Options settings)
     {
         if (string.IsNullOrEmpty(settings.FilePath))
@@ -43,13 +36,9 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
                 do
                 {
                     if (keyRegex.IsMatch(excelDataReader.Name))
-                    {
                         entries.AddRange([..GetEntries(excelDataReader)]);
-                    }
                     else
-                    {
                         poems.Add(GetPoem(excelDataReader));
-                    }
                 } while (excelDataReader.NextResult());
 
                 analyzeContext = new AnalyzeContext(entries, poems,
@@ -78,7 +67,6 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
         ];
 
         while (true)
-        {
             try
             {
                 AnsiConsole.WriteLine();
@@ -101,7 +89,6 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
             {
                 AnsiConsole.WriteException(ex);
             }
-        }
     }
 
     private static Task QuitAsync(AnalyzeContext arg)
@@ -120,10 +107,7 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
             AnsiConsole.Write(new Markup("[bold yellow]Категории[/]"));
             AnsiConsole.WriteLine();
 
-            foreach (var category in entry.Categories)
-            {
-                AnsiConsole.WriteLine(category);
-            }
+            foreach (var category in entry.Categories) AnsiConsole.WriteLine(category);
         }
 
         var found = false;
@@ -144,17 +128,14 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
             AnsiConsole.WriteLine(poem.Name);
         }
 
-        if (!found)
-        {
-            AnsiConsole.WriteLine("Ничего не найдено");
-        }
+        if (!found) AnsiConsole.WriteLine("Ничего не найдено");
 
         return Task.CompletedTask;
     }
 
     private static async Task CopyEntriesAsync(AnalyzeContext context)
     {
-        await TextCopy.ClipboardService.SetTextAsync(string.Join(Environment.NewLine,
+        await ClipboardService.SetTextAsync(string.Join(Environment.NewLine,
             context.Categories.Select(x => x.ToString())));
 
         AnsiConsole.WriteLine("Таблица скопирована в буфер обмена ...");
@@ -184,13 +165,11 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
         categoriesTable.AddColumn("Компоненты");
 
         foreach (var category in categories.OrderByDescending(x => x.TotalCount))
-        {
             categoriesTable.AddRow(
                 category.Name,
                 category.Count.ToString(),
                 category.TotalCount.ToString(),
                 category.EntriesString);
-        }
 
         AnsiConsole.Write(categoriesTable);
 
@@ -207,10 +186,7 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
 
     private static IEnumerable<PoemWord> GetWords(IExcelDataReader reader)
     {
-        while (reader.Read())
-        {
-            yield return new PoemWord(reader.GetString(0).ToLower(), (int)reader.GetDouble(1));
-        }
+        while (reader.Read()) yield return new PoemWord(reader.GetString(0).ToLower(), (int)reader.GetDouble(1));
     }
 
     private static IEnumerable<Entry> GetEntries(IExcelDataReader reader)
@@ -233,5 +209,13 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
                     .Select(x => x!.ToLower().Trim())
             ]);
         }
+    }
+
+    // ReSharper disable once ClassNeverInstantiated.Global
+    public sealed class Options : CommandSettings
+    {
+        [Description("The file to analyze.")]
+        [CommandArgument(0, "[filePath]")]
+        public string? FilePath { get; set; }
     }
 }

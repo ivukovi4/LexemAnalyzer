@@ -15,11 +15,11 @@
     </ItemGroup>
 
     <ItemGroup>
-        <TrimmerRootAssembly Include="LexemAnalyzer" />
-        <TrimmerRootAssembly Include="ExcelDataReader" />
+        <TrimmerRootAssembly Include="LexemAnalyzer"/>
+        <TrimmerRootAssembly Include="ExcelDataReader"/>
         <TrimmerRootAssembly Include="Spectre.Console"/>
         <TrimmerRootAssembly Include="Spectre.Console.Cli"/>
-        <TrimmerRootAssembly Include="TextCopy" />
+        <TrimmerRootAssembly Include="TextCopy"/>
     </ItemGroup>
 
 </Project>
