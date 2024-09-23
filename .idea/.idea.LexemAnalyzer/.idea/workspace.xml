@@ -9,17 +9,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7485bc41-22bc-4380-aa76-1ec5f40c24b2" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/AnalyzeCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/AnalyzeContext.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InternalCommand.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Poem.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PoemWord.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/QuitException.cs" afterDir="false" />
+    <list default="true" id="7485bc41-22bc-4380-aa76-1ec5f40c24b2" name="Changes" comment="Optimize UI and add search feature">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalyzeCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalyzeCommand.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LexemAnalyzer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LexemAnalyzer.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LexemAnalyzer.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/LexemAnalyzer.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Options.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -41,11 +35,14 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/80/ae2ba9af/DocumentLoadResult.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f16b627b404aad25e7acfc3a5ca76f769c4b24359bd281ace04a10da14/AsyncCommandOfT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/594d475f18be7b4b1fc06af44ae8dd296515b5ab692d9c6cf57e3cb5cd7c44/ConfiguratorExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/86d6d0d46cb352dbd2a8abe4fe4f36371b7a15ae8ffffdad8613a9dcb98e6ad/IPrompt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/973bbd4cfe981d6fc57fb2bce1e75eeef067215e6dc4868e7fe8eb0b429ae8/SelectionPromptExtensions.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/9cc4f8571ebe3e595f45f415169eff92b247ad3eda76721b856fff2d53f1057/SelectionPrompt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba326844e34bdd2ab92701de8f870331eabdb1e11361acfaa339364faa886/ExcelDataReader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bce84d89bec5c95f115f3ed9c53eb98ff325b7b08fb7da587faeac84c1db7d9d/ListPrompt.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/AnalyzeCommand.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Category.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -64,7 +61,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    ".NET Project.LexemAnalyzer with param.executor": "Debug",
+    ".NET Project.LexemAnalyzer with param.executor": "Run",
     ".NET Project.LexemAnalyzer.executor": "Debug",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Publish to folder.Release (osx-arm).executor": "Run",
@@ -79,13 +76,13 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
-  <component name="RunManager" selected=".NET Project.LexemAnalyzer with param">
+  <component name="RunManager" selected="Publish to folder.Release (osx-arm)">
     <configuration name="Release (osx-arm)" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" ready_to_run="true" runtime="osx-arm64" self_contained="true" target_folder="$PROJECT_DIR$/bin/Release/net8.0/osx-arm64/publish" target_framework="net8.0" trim_unused_assemblies="true" uuid_high="-6203372173518092429" uuid_low="-6813768550137113095" />
       <method v="2" />
     </configuration>
     <configuration name="Release" type="DotNetFolderPublish" factoryName="Publish to folder">
-      <riderPublish configuration="Release" delete_existing_files="true" include_native_libs_for_self_extract="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$/bin/Release/net8.0/win-x64/publish" target_framework="net8.0" uuid_high="-6203372173518092429" uuid_low="-6813768550137113095" />
+      <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" produce_single_file="true" ready_to_run="true" runtime="win-x64" self_contained="true" target_folder="$PROJECT_DIR$/bin/Release/net8.0/win-x64/publish" target_framework="net8.0" trim_unused_assemblies="true" uuid_high="-6203372173518092429" uuid_low="-6813768550137113095" />
       <method v="2" />
     </configuration>
     <configuration name="LexemAnalyzer with param" type="DotNetProject" factoryName=".NET Project">
@@ -150,7 +147,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726919073687</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Optimize UI and add search feature">
+      <option name="closed" value="true" />
+      <created>1727108552082</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727108552083</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -162,7 +167,8 @@
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Parse some lexems and show statistic" />
-    <option name="LAST_COMMIT_MESSAGE" value="Parse some lexems and show statistic" />
+    <MESSAGE value="Optimize UI and add search feature" />
+    <option name="LAST_COMMIT_MESSAGE" value="Optimize UI and add search feature" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -244,19 +250,6 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AnalyzeCommand.cs</url>
-          <line>35</line>
-          <properties documentPath="$PROJECT_DIR$/AnalyzeCommand.cs" containingFunctionPresentation="Lambda expression inside Method 'ExecuteAsync'">
-            <startOffsets>
-              <option value="1128" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1218" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

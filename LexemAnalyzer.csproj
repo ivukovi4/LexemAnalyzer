@@ -8,10 +8,18 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="ExcelDataReader" Version="3.7.0" />
-      <PackageReference Include="Spectre.Console" Version="0.49.1" />
-      <PackageReference Include="Spectre.Console.Cli" Version="0.49.1" />
-      <PackageReference Include="TextCopy" Version="6.2.1" />
+        <PackageReference Include="ExcelDataReader" Version="3.7.0"/>
+        <PackageReference Include="Spectre.Console" Version="0.49.1"/>
+        <PackageReference Include="Spectre.Console.Cli" Version="0.49.1"/>
+        <PackageReference Include="TextCopy" Version="6.2.1"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <TrimmerRootAssembly Include="LexemAnalyzer" />
+        <TrimmerRootAssembly Include="ExcelDataReader" />
+        <TrimmerRootAssembly Include="Spectre.Console"/>
+        <TrimmerRootAssembly Include="Spectre.Console.Cli"/>
+        <TrimmerRootAssembly Include="TextCopy" />
     </ItemGroup>
 
 </Project>

@@ -7,8 +7,10 @@ using Spectre.Console.Cli;
 
 namespace LexemAnalyzer;
 
+// ReSharper disable once ClassNeverInstantiated.Global
 internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Options>
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public sealed class Options : CommandSettings
     {
         [Description("The file to analyze.")]
@@ -65,10 +67,12 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
 
         Debug.Assert(analyzeContext != null, nameof(analyzeContext) + " != null");
 
+        await ShowEntriesAsync(analyzeContext);
+
         InternalCommand[] commands =
         [
             new("Скопировать результат", CopyEntriesAsync),
-            new("Показать результат", ShowEntriesAsync),
+            // new("Показать результат", ShowEntriesAsync),
             new("Найти слово", SearchAsync),
             new("Выход", QuitAsync)
         ];
@@ -81,13 +85,16 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
 
                 var commandName = AnsiConsole.Prompt(
                     new SelectionPrompt<string>()
-                        .Title("Что сделать дальше?")
+                        .Title("[bold blue]Что сделать дальше?[/]")
                         .AddChoices(commands.Select(x => x.Name)));
 
                 await commands.First(x => x.Name == commandName).Action(analyzeContext);
             }
             catch (QuitException)
             {
+                AnsiConsole.Write(new Markup("[grey]Выходим ...[/]"));
+                AnsiConsole.WriteLine();
+
                 return 0;
             }
             catch (Exception ex)
@@ -105,23 +112,43 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
     private static Task SearchAsync(AnalyzeContext arg)
     {
         var searchQuery = AnsiConsole.Prompt(new TextPrompt<string>("Какое слово ищем?")).ToLower();
-        
+
+        var entry = arg.Entries.FirstOrDefault(x => x.Name == searchQuery);
+        if (entry != null)
+        {
+            AnsiConsole.WriteLine();
+            AnsiConsole.Write(new Markup("[bold yellow]Категории[/]"));
+            AnsiConsole.WriteLine();
+
+            foreach (var category in entry.Categories)
+            {
+                AnsiConsole.WriteLine(category);
+            }
+        }
+
         var found = false;
-        
+
         foreach (var poem in arg.Poems)
         {
-            if (poem.Words.Any(x => x.Name.Contains(searchQuery)))
+            if (!poem.Words.Any(x => x.Name.Contains(searchQuery))) continue;
+
+            if (found == false)
             {
+                AnsiConsole.WriteLine();
+                AnsiConsole.Write(new Markup("[bold green]Результаты поиска[/]"));
+                AnsiConsole.WriteLine();
+
                 found = true;
-                AnsiConsole.WriteLine(poem.Name);
             }
+
+            AnsiConsole.WriteLine(poem.Name);
         }
 
         if (!found)
         {
             AnsiConsole.WriteLine("Ничего не найдено");
         }
-        
+
         return Task.CompletedTask;
     }
 
