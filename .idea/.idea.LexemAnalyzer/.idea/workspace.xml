@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7485bc41-22bc-4380-aa76-1ec5f40c24b2" name="Changes" comment="Optimize UI and add search feature">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AnalyzeCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalyzeCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LexemAnalyzer.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/LexemAnalyzer.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LexemAnalyzer.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/LexemAnalyzer.sln.DotSettings.user" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-    </list>
+    <list default="true" id="7485bc41-22bc-4380-aa76-1ec5f40c24b2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -155,7 +149,23 @@
       <option name="project" value="LOCAL" />
       <updated>1727108552083</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add exception propagation">
+      <option name="closed" value="true" />
+      <created>1727111800836</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1727111800836</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Cleanup">
+      <option name="closed" value="true" />
+      <created>1727111838325</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1727111838325</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -168,7 +178,9 @@
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Parse some lexems and show statistic" />
     <MESSAGE value="Optimize UI and add search feature" />
-    <option name="LAST_COMMIT_MESSAGE" value="Optimize UI and add search feature" />
+    <MESSAGE value="Add exception propagation" />
+    <MESSAGE value="Cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -62,7 +62,8 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
         [
             new("Скопировать результат", CopyEntriesAsync),
             // new("Показать результат", ShowEntriesAsync),
-            new("Найти слово", SearchAsync),
+            new("Поиск по слову", SearchWordAsync),
+            new("Поиск по категории", SearchCategoryAsync),
             new("Выход", QuitAsync)
         ];
 
@@ -96,7 +97,47 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
         throw new QuitException();
     }
 
-    private static Task SearchAsync(AnalyzeContext arg)
+    private static async Task SearchCategoryAsync(AnalyzeContext arg)
+    {
+        var category = await new SelectionPrompt<string>()
+            .Title("Выберите категорию")
+            .MoreChoicesText("[grey](Нажмите вверх или вниз чтобы показать больше вариантов)[/]")
+            .AddChoices(arg.Categories.Select(x => x.Name).Order())
+            .ShowAsync(AnsiConsole.Console, default);
+
+        var allWordsInCategory = arg.Entries
+            .Where(x => x.Categories.Contains(category))
+            .Select(x => x.Name)
+            .Distinct();
+
+        var searchResults = (
+                from poem in arg.Poems
+                let poemWords = poem.Words.Where(x => allWordsInCategory.Contains(x.Name)).ToList()
+                where poemWords.Count > 0
+                select (poem, poemWords))
+            .ToList();
+
+        if (searchResults.Count == 0)
+        {
+            AnsiConsole.WriteLine("Ничего не найдено");
+        }
+        else
+        {
+            AnsiConsole.Write(new Markup($"Стихи со словами в категории: [bold blue]{category}[/]"));
+            AnsiConsole.WriteLine();
+            AnsiConsole.WriteLine();
+
+            foreach (var (poem, poemWords) in searchResults)
+            {
+                AnsiConsole.Write(new Markup($"[bold green]{poem.Name}[/]"));
+                AnsiConsole.WriteLine();
+                AnsiConsole.Write(new Rows(poemWords.Select(x => new Markup($"{x.Name}[gray]({x.Count})[/]"))));
+                AnsiConsole.WriteLine();
+            }
+        }
+    }
+
+    private static Task SearchWordAsync(AnalyzeContext arg)
     {
         var searchQuery = AnsiConsole.Prompt(new TextPrompt<string>("Какое слово ищем?")).ToLower();
 
@@ -159,17 +200,19 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
         {
             ShowRowSeparators = true
         };
-        categoriesTable.AddColumn("Категория");
-        categoriesTable.AddColumn("Кол-во уникальных компонентов", column => { column.Alignment = Justify.Right; });
-        categoriesTable.AddColumn("Общее кол-во компонентов", column => { column.Alignment = Justify.Right; });
-        categoriesTable.AddColumn("Компоненты");
+        categoriesTable.AddColumn("[bold blue]Категория[/]");
+        categoriesTable.AddColumn("[bold blue]Кол-во уникальных компонентов[/]",
+            column => { column.Alignment = Justify.Right; });
+        categoriesTable.AddColumn("[bold blue]Общее кол-во компонентов[/]",
+            column => { column.Alignment = Justify.Right; });
+        categoriesTable.AddColumn("[bold blue]Компоненты[/]");
 
         foreach (var category in categories.OrderByDescending(x => x.TotalCount))
             categoriesTable.AddRow(
-                category.Name,
-                category.Count.ToString(),
-                category.TotalCount.ToString(),
-                category.EntriesString);
+                new Markup($"[bold green]{category.Name}[/]"),
+                new Text(category.Count.ToString()),
+                new Text(category.TotalCount.ToString()),
+                new Markup(category.EntriesString));
 
         AnsiConsole.Write(categoriesTable);
 

@@ -4,7 +4,7 @@ public record Category(string Name, int Count, int TotalCount, Entry[] Entries)
 {
     public string EntriesString => string.Join(", ", Entries
         .OrderByDescending(x => x.Count)
-        .Select(x => x.Count > 1 ? $"{x.Name}({x.Count})" : x.Name));
+        .Select(x => x.Count > 1 ? $"{x.Name}[gray]({x.Count})[/]" : x.Name));
 
     public override string ToString()
     {
