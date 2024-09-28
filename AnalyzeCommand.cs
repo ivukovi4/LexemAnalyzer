@@ -177,7 +177,7 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
     private static async Task CopyEntriesAsync(AnalyzeContext context)
     {
         await ClipboardService.SetTextAsync(string.Join(Environment.NewLine,
-            context.Categories.Select(x => x.ToString())));
+            context.Categories.Select(x => x.ToString(false))));
 
         AnsiConsole.WriteLine("Таблица скопирована в буфер обмена ...");
     }
@@ -212,7 +212,7 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
                 new Markup($"[bold green]{category.Name}[/]"),
                 new Text(category.Count.ToString()),
                 new Text(category.TotalCount.ToString()),
-                new Markup(category.EntriesString));
+                new Markup(category.GetEntriesString(true)));
 
         AnsiConsole.Write(categoriesTable);
 

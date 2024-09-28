@@ -30,6 +30,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/80/ae2ba9af/DocumentLoadResult.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/1f16b627b404aad25e7acfc3a5ca76f769c4b24359bd281ace04a10da14/AsyncCommandOfT.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3c132ffc094a3634459e53f98df64a48ed3c3cbacdb2e87ab513194ff4c55/TableExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/594d475f18be7b4b1fc06af44ae8dd296515b5ab692d9c6cf57e3cb5cd7c44/ConfiguratorExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/86d6d0d46cb352dbd2a8abe4fe4f36371b7a15ae8ffffdad8613a9dcb98e6ad/IPrompt.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/973bbd4cfe981d6fc57fb2bce1e75eeef067215e6dc4868e7fe8eb0b429ae8/SelectionPromptExtensions.cs" root0="SKIP_HIGHLIGHTING" />
@@ -53,24 +54,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Project.LexemAnalyzer with param.executor": "Run",
-    ".NET Project.LexemAnalyzer.executor": "Debug",
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Publish to folder.Release (osx-arm).executor": "Run",
-    "Publish to folder.Release.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Project.LexemAnalyzer with param.executor&quot;: &quot;Run&quot;,
+    &quot;.NET Project.LexemAnalyzer.executor&quot;: &quot;Debug&quot;,
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Publish to folder.Release (osx-arm).executor&quot;: &quot;Run&quot;,
+    &quot;Publish to folder.Release.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
-  <component name="RunManager" selected="Publish to folder.Release (osx-arm)">
+}</component>
+  <component name="RunManager" selected=".NET Project.LexemAnalyzer with param">
     <configuration name="Release (osx-arm)" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" ready_to_run="true" runtime="osx-arm64" self_contained="true" target_folder="$PROJECT_DIR$/bin/Release/net8.0/osx-arm64/publish" target_framework="net8.0" trim_unused_assemblies="true" uuid_high="-6203372173518092429" uuid_low="-6813768550137113095" />
       <method v="2" />
@@ -132,6 +133,7 @@
       <updated>1726909658715</updated>
       <workItem from="1726909659796" duration="9829000" />
       <workItem from="1727064108678" duration="1424000" />
+      <workItem from="1727326416605" duration="4342000" />
     </task>
     <task id="LOCAL-00001" summary="Parse some lexems and show statistic">
       <option name="closed" value="true" />
@@ -165,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727111838325</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add search by category">
+      <option name="closed" value="true" />
+      <created>1727328613086</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1727328613086</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,90 +190,7 @@
     <MESSAGE value="Optimize UI and add search feature" />
     <MESSAGE value="Add exception propagation" />
     <MESSAGE value="Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs</url>
-          <line>462</line>
-          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs" containingFunctionPresentation="Method 'LoadDocument'">
-            <startOffsets>
-              <option value="12636" />
-            </startOffsets>
-            <endOffsets>
-              <option value="12654" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs</url>
-          <line>463</line>
-          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/1c/85acbdd2/NativeWorkbook.cs" containingFunctionPresentation="Method 'LoadDocument'">
-            <startOffsets>
-              <option value="12661" />
-            </startOffsets>
-            <endOffsets>
-              <option value="12700" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs</url>
-          <line>1557</line>
-          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" containingFunctionPresentation="Method 'LoadDocumentCore'">
-            <startOffsets>
-              <option value="60603" />
-            </startOffsets>
-            <endOffsets>
-              <option value="60702" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs</url>
-          <line>1539</line>
-          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" containingFunctionPresentation="Method 'LoadDocument'">
-            <startOffsets>
-              <option value="59957" />
-            </startOffsets>
-            <endOffsets>
-              <option value="60026" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs</url>
-          <line>1540</line>
-          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" containingFunctionPresentation="Method 'LoadDocument'">
-            <startOffsets>
-              <option value="60037" />
-            </startOffsets>
-            <endOffsets>
-              <option value="60098" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs</url>
-          <line>1569</line>
-          <properties documentPath="$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/f0b21525a6854c3bb6f023793839c6801085068/60/181bddd1/InnerSpreadsheetDocumentServer.cs" containingFunctionPresentation="Method 'LoadDocumentCore'">
-            <startOffsets>
-              <option value="61282" />
-            </startOffsets>
-            <endOffsets>
-              <option value="61339" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Add search by category" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add search by category" />
   </component>
 </project>
