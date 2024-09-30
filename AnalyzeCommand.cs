@@ -14,7 +14,9 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
     public override async Task<int> ExecuteAsync(CommandContext commandContext, Options settings)
     {
         if (string.IsNullOrEmpty(settings.FilePath))
-            settings.FilePath = Directory.GetFiles("./", "*.xlsx", SearchOption.AllDirectories).FirstOrDefault();
+            settings.FilePath = Directory
+                .GetFiles("./", "*.xlsx", SearchOption.AllDirectories)
+                .FirstOrDefault(x => FileNameRegex().IsMatch(x));
 
         if (!File.Exists(settings.FilePath))
             throw new FileNotFoundException(settings.FilePath);
@@ -114,6 +116,7 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
                 from poem in arg.Poems
                 let poemWords = poem.Words.Where(x => allWordsInCategory.Contains(x.Name)).ToList()
                 where poemWords.Count > 0
+                orderby poemWords.Count
                 select (poem, poemWords))
             .ToList();
 
@@ -222,6 +225,9 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
     [GeneratedRegex(".*частотный словарь.*")]
     private static partial Regex KeyRegex();
 
+    [GeneratedRegex(@"(?:\./)частотны(:?.*)словарь\.xlsx", RegexOptions.IgnoreCase)]
+    private static partial Regex FileNameRegex();
+
     private static Poem GetPoem(IExcelDataReader reader)
     {
         return new Poem(reader.Name, [..GetWords(reader)]);
@@ -239,17 +245,18 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
             var name = reader.GetString(0);
             var count = (int)reader.GetDouble(1);
 
-            string?[] categories =
-            [
-                reader.GetString(2),
-                reader.GetString(3),
-                reader.GetString(4)
-            ];
+            var categories = new List<string>(reader.FieldCount - 2);
+
+
+            for (var i = 2; i < reader.FieldCount; i++)
+            {
+                categories.Add(reader.GetString(i));
+            }
 
             yield return new Entry(name, count, [
                 ..categories
                     .Where(c => !string.IsNullOrWhiteSpace(c))
-                    .Select(x => x!.ToLower().Trim())
+                    .Select(x => x.ToLower().Trim())
             ]);
         }
     }

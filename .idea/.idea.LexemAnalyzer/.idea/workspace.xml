@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7485bc41-22bc-4380-aa76-1ec5f40c24b2" name="Changes" comment="" />
+    <list default="true" id="7485bc41-22bc-4380-aa76-1ec5f40c24b2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.LexemAnalyzer/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AnalyzeCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/AnalyzeCommand.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -38,6 +41,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/ba326844e34bdd2ab92701de8f870331eabdb1e11361acfaa339364faa886/ExcelDataReader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/bce84d89bec5c95f115f3ed9c53eb98ff325b7b08fb7da587faeac84c1db7d9d/ListPrompt.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/AnalyzeCommand.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="mock:///Users/ivukovi4/Projects/LexemAnalyzer/AnalyzeCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Category.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Entry.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Program.cs" root0="FORCE_HIGHLIGHTING" />
@@ -54,24 +58,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;.NET Project.LexemAnalyzer with param.executor&quot;: &quot;Run&quot;,
-    &quot;.NET Project.LexemAnalyzer.executor&quot;: &quot;Debug&quot;,
-    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;Publish to folder.Release (osx-arm).executor&quot;: &quot;Run&quot;,
-    &quot;Publish to folder.Release.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    ".NET Project.LexemAnalyzer with param.executor": "Run",
+    ".NET Project.LexemAnalyzer.executor": "Debug",
+    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Publish to folder.Release (osx-arm).executor": "Run",
+    "Publish to folder.Release.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RunManager" selected=".NET Project.LexemAnalyzer with param">
+}]]></component>
+  <component name="RunManager" selected="Publish to folder.Release">
     <configuration name="Release (osx-arm)" type="DotNetFolderPublish" factoryName="Publish to folder">
       <riderPublish configuration="Release" delete_existing_files="true" platform="Any CPU" ready_to_run="true" runtime="osx-arm64" self_contained="true" target_folder="$PROJECT_DIR$/bin/Release/net8.0/osx-arm64/publish" target_framework="net8.0" trim_unused_assemblies="true" uuid_high="-6203372173518092429" uuid_low="-6813768550137113095" />
       <method v="2" />
@@ -134,6 +138,8 @@
       <workItem from="1726909659796" duration="9829000" />
       <workItem from="1727064108678" duration="1424000" />
       <workItem from="1727326416605" duration="4342000" />
+      <workItem from="1727506909735" duration="922000" />
+      <workItem from="1727682772356" duration="1430000" />
     </task>
     <task id="LOCAL-00001" summary="Parse some lexems and show statistic">
       <option name="closed" value="true" />
@@ -175,7 +181,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727328613086</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Fix copy styling">
+      <option name="closed" value="true" />
+      <created>1727507180070</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1727507180070</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -191,6 +205,26 @@
     <MESSAGE value="Add exception propagation" />
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Add search by category" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add search by category" />
+    <MESSAGE value="Fix copy styling" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix copy styling" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/AnalyzeCommand.cs</url>
+          <line>20</line>
+          <properties documentPath="$PROJECT_DIR$/AnalyzeCommand.cs" containingFunctionPresentation="Method 'ExecuteAsync'">
+            <startOffsets>
+              <option value="681" />
+            </startOffsets>
+            <endOffsets>
+              <option value="717" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
