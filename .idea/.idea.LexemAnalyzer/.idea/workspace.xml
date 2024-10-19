@@ -61,7 +61,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     ".NET Project.LexemAnalyzer with param.executor": "Run",
-    ".NET Project.LexemAnalyzer.executor": "Debug",
+    ".NET Project.LexemAnalyzer.executor": "Run",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Publish to folder.Release (osx-arm).executor": "Run",
     "Publish to folder.Release.executor": "Run",
@@ -139,7 +139,7 @@
       <workItem from="1727064108678" duration="1424000" />
       <workItem from="1727326416605" duration="4342000" />
       <workItem from="1727506909735" duration="922000" />
-      <workItem from="1727682772356" duration="1430000" />
+      <workItem from="1727682772356" duration="5648000" />
     </task>
     <task id="LOCAL-00001" summary="Parse some lexems and show statistic">
       <option name="closed" value="true" />
@@ -189,7 +189,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727507180070</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Search specific file name">
+      <option name="closed" value="true" />
+      <created>1727684477345</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1727684477345</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,25 +214,7 @@
     <MESSAGE value="Cleanup" />
     <MESSAGE value="Add search by category" />
     <MESSAGE value="Fix copy styling" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix copy styling" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/AnalyzeCommand.cs</url>
-          <line>20</line>
-          <properties documentPath="$PROJECT_DIR$/AnalyzeCommand.cs" containingFunctionPresentation="Method 'ExecuteAsync'">
-            <startOffsets>
-              <option value="681" />
-            </startOffsets>
-            <endOffsets>
-              <option value="717" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Search specific file name" />
+    <option name="LAST_COMMIT_MESSAGE" value="Search specific file name" />
   </component>
 </project>

@@ -63,6 +63,7 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
         InternalCommand[] commands =
         [
             new("Скопировать результат", CopyEntriesAsync),
+            new("Скопировать категорию", CopyCategoryAsync),
             // new("Показать результат", ShowEntriesAsync),
             new("Поиск по слову", SearchWordAsync),
             new("Поиск по категории", SearchCategoryAsync),
@@ -99,25 +100,49 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
         throw new QuitException();
     }
 
-    private static async Task SearchCategoryAsync(AnalyzeContext arg)
+    private static async Task CopyCategoryAsync(AnalyzeContext arg)
     {
-        var category = await new SelectionPrompt<string>()
+        var selectedCategory = await new SelectionPrompt<string>()
             .Title("Выберите категорию")
-            .MoreChoicesText("[grey](Нажмите вверх или вниз чтобы показать больше вариантов)[/]")
             .AddChoices(arg.Categories.Select(x => x.Name).Order())
+            .MoreChoicesText("[grey](Нажмите вверх или вниз чтобы показать больше вариантов)[/]")
             .ShowAsync(AnsiConsole.Console, default);
 
-        var allWordsInCategory = arg.Entries
-            .Where(x => x.Categories.Contains(category))
-            .Select(x => x.Name)
-            .Distinct();
+        var category = arg.Categories.FirstOrDefault(x => x.Name == selectedCategory);
+        if (category == null)
+        {
+            AnsiConsole.Write(new Markup("[red]Категория не найдена[/]"));
+            AnsiConsole.WriteLine();
+            return;
+        }
+
+        await ClipboardService.SetTextAsync(string.Join(Environment.NewLine,
+            category.Entries.Select(x => $"{x.Name}\t{x.Count}")));
+        
+        AnsiConsole.WriteLine("Категория скопирована в буфер обмена ...");
+    }
+
+    private static async Task SearchCategoryAsync(AnalyzeContext arg)
+    {
+        var selectedCategories = await new MultiSelectionPrompt<string>()
+            .Title("Выберите категории")
+            .AddChoices(arg.Categories.Select(x => x.Name).Order())
+            .MoreChoicesText("[grey](Нажмите вверх или вниз чтобы показать больше вариантов)[/]")
+            .InstructionsText(
+                "[grey](Нажмите [blue]<пробел>[/] для выбора категории, " +
+                "[green]<enter>[/] чтобы принять)[/]")
+            .ShowAsync(AnsiConsole.Console, default);
 
         var searchResults = (
                 from poem in arg.Poems
-                let poemWords = poem.Words.Where(x => allWordsInCategory.Contains(x.Name)).ToList()
-                where poemWords.Count > 0
-                orderby poemWords.Count
-                select (poem, poemWords))
+                from category in selectedCategories
+                let cwords = arg.Entries.Where(y => y.Categories.Contains(category)).Select(x => x.Name)
+                // from e in arg.Entries
+                // where e.Categories.Contains(c)
+                let pwords = poem.Words.Where(x => cwords.Contains(x.Name)).ToList()
+                where pwords.Count > 0
+                orderby pwords.Count descending
+                select (poem, category, pwords))
             .ToList();
 
         if (searchResults.Count == 0)
@@ -126,16 +151,22 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
         }
         else
         {
-            AnsiConsole.Write(new Markup($"Стихи со словами в категории: [bold blue]{category}[/]"));
+            AnsiConsole.Write("Стихи со словами в категориях");
             AnsiConsole.WriteLine();
             AnsiConsole.WriteLine();
 
-            foreach (var (poem, poemWords) in searchResults)
+            foreach (var group in searchResults.GroupBy(x => x.poem.Name))
             {
-                AnsiConsole.Write(new Markup($"[bold green]{poem.Name}[/]"));
+                AnsiConsole.Write(new Markup($"[bold green]{group.Key}[/]"));
                 AnsiConsole.WriteLine();
-                AnsiConsole.Write(new Rows(poemWords.Select(x => new Markup($"{x.Name}[gray]({x.Count})[/]"))));
-                AnsiConsole.WriteLine();
+
+                foreach (var (_, category, poemWords) in group)
+                {
+                    AnsiConsole.Write(new Markup($"[bold blue]{category}[/]"));
+                    AnsiConsole.WriteLine();
+                    AnsiConsole.Write(new Rows(poemWords.Select(x => new Markup($"{x.Name}[gray]({x.Count})[/]"))));
+                    AnsiConsole.WriteLine();
+                }
             }
         }
     }
@@ -246,11 +277,16 @@ internal sealed partial class AnalyzeCommand : AsyncCommand<AnalyzeCommand.Optio
             var count = (int)reader.GetDouble(1);
 
             var categories = new List<string>(reader.FieldCount - 2);
-
-
             for (var i = 2; i < reader.FieldCount; i++)
             {
-                categories.Add(reader.GetString(i));
+                try
+                {
+                    categories.Add(reader.GetString(i));
+                }
+                catch (Exception ex)
+                {
+                    AnsiConsole.WriteException(ex);
+                }
             }
 
             yield return new Entry(name, count, [
